@@ -1,30 +1,30 @@
-# LeetCode 1934 - Confirmation Rate
+# LeetCode 1341 - Movie Rating
 
 ## Problem
-Calculate the confirmation rate for each user.
+Find:
+1. The user who has rated the greatest number of movies. If there is a tie, return the lexicographically smaller name.
+2. The movie with the highest average rating in **February 2020**. If there is a tie, return the lexicographically smaller title.
 
-The confirmation rate is defined as:
-
-**Number of confirmed actions ÷ Total confirmation requests**
-
-If a user has no confirmation requests, their confirmation rate should be `0.00`.
+Return both results in a single column named `results`.
 
 ## Approach
-1. Perform a `LEFT JOIN` between the `Signups` and `Confirmations` tables to include all users.
-2. Count only the confirmed actions using a `CASE` expression inside `COUNT()`.
-3. Count the total confirmation requests for each user.
-4. Divide the confirmed count by the total request count.
-5. Round the result to two decimal places and return the confirmation rate for each user.
+1. Count the number of movie ratings submitted by each user.
+2. Sort by rating count in descending order and user name in ascending order to break ties.
+3. Calculate the average movie rating for ratings given in February 2020.
+4. Sort by average rating in descending order and movie title in ascending order to break ties.
+5. Combine both results using `UNION ALL`.
 
 ## SQL Concepts Used
-- LEFT JOIN
-- Aggregate Function (`COUNT`)
-- CASE Expression
-- ROUND()
+- Common Table Expression (CTE)
+- INNER JOIN
+- Aggregate Functions (`COUNT`, `AVG`)
 - GROUP BY
+- ORDER BY
+- Date Functions (`YEAR`, `MONTH`)
+- UNION ALL
 
 ## Time Complexity
-O(n)
+O(n log n)
 
 ## Space Complexity
-O(1)
+O(n)
