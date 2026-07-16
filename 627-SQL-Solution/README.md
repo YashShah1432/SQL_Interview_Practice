@@ -1,4 +1,4 @@
-# LeetCode 627 - Swap Salary
+# LeetCode 627 - Swap Sex
 
 ## Problem
 Swap all `'m'` and `'f'` values in the `sex` column without using a temporary table.
